@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 let currentDate = new Date();
-currentDate = currentDate.getHours(2022, 7, 27, 22);
+currentDate = currentDate.getHours();
 let greeting = '';
 const cssStyle = {};
 if (currentDate >= 1 && currentDate < 12) {
