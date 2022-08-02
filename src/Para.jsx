@@ -2,7 +2,7 @@ import React from 'react';
 
 function Para() {
     return (
-        <p>This is ordered list of ott platforms...</p>
+        <p>These are some ott Platfroms...</p>
     );
 }
 

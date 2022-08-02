@@ -2,7 +2,7 @@ import React from 'react';
 
 function Heading() {
     return (
-        <h1>Created Using Components</h1>
+        <h1>This is Heading</h1>
     );
 }
 

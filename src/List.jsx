@@ -3,9 +3,11 @@ import React from 'react';
 function List() {
     return (
         <ol>
-            <li>Netflix</li>
             <li>Amazon Prime</li>
+            <li>Netflix</li>
             <li>Disney Hotstar</li>
+            <li>Voot</li>
+            <li>Zee 5</li>
         </ol>
     );
 }
