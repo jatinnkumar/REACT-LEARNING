@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+div#root {
+  display: flex;
+  justify-content: center;
+}
+
+.calc {
+  font-size: 30px;
+}
+
+ol {
+  border: 10px solid blue;
+  border-radius: 25px 50px 25px 50px;
+  padding: 40px;
+}
+
+li {
+  color: mediumvioletred;
+}
