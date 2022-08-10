@@ -6,7 +6,7 @@ function Card(props) {
     return (
         <>
             <div className='card'>
-                <a href={props.link} target="_bla</a>nk">
+                <a href={props.link} target="_blank">
                     <img src={props.imgSrc} />
                 </a>
                 <div className="container">
