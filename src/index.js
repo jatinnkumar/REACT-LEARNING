@@ -8,7 +8,7 @@ ReactDOM.render(
     <>
         {ArrayLinks.map(function arrayData(data) {
             return (
-                <Card imgSrc={data.imgSrc} vName={data.title} link={data.link} />
+                <Card key={data.id} imgSrc={data.imgSrc} vName={data.title} link={data.link} />
             );
         })}
     </>,
