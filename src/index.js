@@ -1,15 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Card from './Card';
-import ArrayLinks from './ArrayLinks';
+import App from './App';
 
-
-ReactDOM.render(
-    <>
-        {ArrayLinks.map(function arrayData(data) {
-            return (
-                <Card key={data.id} imgSrc={data.imgSrc} vName={data.title} link={data.link} />
-            );
-        })}
-    </>,
-    document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

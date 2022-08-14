@@ -12,11 +12,6 @@ code {
     monospace;
 }
 
-div#root {
-  display: flex;
-  justify-content: center;
-}
-
 .calc {
   font-size: 30px;
 }
@@ -29,4 +24,17 @@ ol {
 
 li {
   color: mediumvioletred;
+}
+
+.slotMachine {
+  text-align: center;
+}
+
+h1.Heading {
+  width: 40%;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 5px 5px 10px grey;
 }
