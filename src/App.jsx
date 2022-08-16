@@ -1,14 +1,25 @@
-import React from 'react';
-import SlotMachine from './SlotMachine';
+import React, { useState } from 'react';
 import './index.css';
 
+
 const App = () => {
+    const [count, updatedCount] = useState(1);
+
+    const IncNum = () => {
+        updatedCount(count + 1);
+    };
+
+    const DecNum = () => {
+        updatedCount(count - 1);
+    };
+
     return (
         <>
-            <h1 className='Heading'>Welcome to <span>Slot Machine Game</span></h1>
-            <SlotMachine x='🏀' y='🏀' z='🏀' />
-            <SlotMachine x='🏀' y='🏀' z='😄' />
-            <SlotMachine x='😄' y='😄' z='🏀' />
+            <div className='btn-container'>
+                <h1>{count}</h1>
+                <button className='hookBtn' onClick={IncNum}>Click Me To Increase</button><br /><br />
+                <button className='hookBtn' onClick={DecNum}>Click Me To Decrease</button>
+            </div>
         </>
     );
 };
