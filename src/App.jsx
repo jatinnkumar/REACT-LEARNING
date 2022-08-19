@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import './index.css';
 
-
 const App = () => {
-    const [count, updatedCount] = useState(1);
+    let currentTime = new Date().toLocaleTimeString();
+    const [time, updateTime] = useState(currentTime);
 
-    const IncNum = () => {
-        updatedCount(count + 1);
-    };
-
-    const DecNum = () => {
-        updatedCount(count - 1);
+    const getTime = () => {
+        currentTime = new Date().toLocaleTimeString();
+        updateTime(currentTime);
     };
 
     return (
         <>
             <div className='btn-container'>
-                <h1>{count}</h1>
-                <button className='hookBtn' onClick={IncNum}>Click Me To Increase</button><br /><br />
-                <button className='hookBtn' onClick={DecNum}>Click Me To Decrease</button>
+                <h1>{time}</h1>
+                <button className='hookBtn' onClick={getTime}>Get Time</button>
             </div>
         </>
     );
