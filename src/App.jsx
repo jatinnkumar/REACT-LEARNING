@@ -2,22 +2,19 @@ import React, { useState } from 'react';
 import './index.css';
 
 const App = () => {
-    let currentTime = new Date().toLocaleTimeString();
-    const [time, updateTime] = useState(currentTime);
-
-    const getTime = () => {
-        currentTime = new Date().toLocaleTimeString();
-        updateTime(currentTime);
-    };
-
+    let time = new Date().toLocaleTimeString();
+    const [currentTime, updatedTime] = useState(time);
+    setInterval(() => {
+        time = new Date().toLocaleTimeString();
+        updatedTime(time);
+    }, 1000);
     return (
         <>
             <div className='btn-container'>
-                <h1>{time}</h1>
-                <button className='hookBtn' onClick={getTime}>Get Time</button>
+                <h1>{currentTime}</h1>
             </div>
         </>
     );
-};
+}
 
 export default App;

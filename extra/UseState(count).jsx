@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './index.css';
 
 
-const UseStateTest = () => {
+const UseStateTest1 = () => {
     const [count, updatedCount] = useState(1);
 
     const IncNum = () => {
@@ -24,4 +24,4 @@ const UseStateTest = () => {
     );
 };
 
-export default UseStateTest;
+export default UseStateTest1;
