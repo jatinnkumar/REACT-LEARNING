@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
-import './index.css';
+import React, { useState } from "react";
 
 const App = () => {
-    let time = new Date().toLocaleTimeString();
-    const [currentTime, updatedTime] = useState(time);
-    setInterval(() => {
-        time = new Date().toLocaleTimeString();
-        updatedTime(time);
-    }, 1000);
+    let bg = 'green';
+    let text = 'Single Click to Change !';
+    const [bgColor, setBgColor] = useState(bg);
+    const [btnText, setText] = useState(text);
+    const changeBg = () => {
+        setBgColor('Blue');
+        setText('Double Click to Change !');
+    }
+    const bgBack = () => {
+        setBgColor('Green');
+        setText('Single Click to Change !');
+    }
     return (
         <>
-            <div className='btn-container'>
-                <h1>{currentTime}</h1>
+            <div className='btn-container' style={{ background: bgColor }}>
+                <button className='hookBtn' onClick={changeBg} onDoubleClick={bgBack}>{btnText}</button>
             </div>
         </>
     );
