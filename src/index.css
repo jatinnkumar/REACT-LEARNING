@@ -49,3 +49,36 @@ button.hookBtn {
   background: cornflowerblue;
   box-shadow: 5px 5px 10px grey;
 }
+
+html {
+  height: 100%;
+  width: 100%;
+  background: rebeccapurple;
+}
+
+div#root {
+  text-align: center;
+  margin-top: 15%;
+}
+
+h1.formHeading {
+  color: white;
+  font-size: 50px;
+  text-shadow: 5px 5px 10px grey;
+}
+
+input.formInput {
+  width: 25%;
+  height: 45px;
+  box-shadow: 5px 5px 5px grey;
+  font-size: 25px;
+  font-family: monospace;
+}
+
+button.formBtn {
+  width: 8%;
+  height: 40px;
+  font-size: 25px;
+  font-family: monospace;
+  box-shadow: 5px 5px 5px grey;
+}

@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const App = () => {
-    let bg = 'green';
-    let text = 'Single Click to Change !';
-    const [bgColor, setBgColor] = useState(bg);
-    const [btnText, setText] = useState(text);
-    const changeBg = () => {
-        setBgColor('Blue');
-        setText('Double Click to Change !');
+    const [name, setName] = useState();
+    const [fullName, setFullName] = useState();
+    const inputFunc = (data) => {
+        setName(data.target.value);
     }
-    const bgBack = () => {
-        setBgColor('Green');
-        setText('Single Click to Change !');
+    const onSubmit = () => {
+        setFullName(name);
     }
+
     return (
         <>
-            <div className='btn-container' style={{ background: bgColor }}>
-                <button className='hookBtn' onClick={changeBg} onDoubleClick={bgBack}>{btnText}</button>
+            <div className='formDiv'>
+                <h1 className='formHeading'>Hello {fullName}</h1>
+                <input className='formInput' type='text' placeholder='Enter Your Name' onChange={inputFunc} value={name} /><br /><br />
+                <button className='formBtn' onClick={onSubmit}>Submit</button>
             </div>
         </>
     );
