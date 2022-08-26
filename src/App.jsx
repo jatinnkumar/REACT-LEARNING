@@ -1,27 +1,50 @@
 import React, { useState } from 'react';
 
 const App = () => {
-    const [name, setName] = useState();
-    const [lname, setLname] = useState();
-    const [fullName, setFullName] = useState();
+    const [formData, setFullName] = useState({
+        fName: '',
+        lName: '',
+        email: ''
+    });
     const inputFunc = (data) => {
-        setName(data.target.value);
-    }
-    const inputFuncSec = (data) => {
-        setLname(data.target.value);
+        let name = data.target.name;
+        let value = data.target.value;
+        setFullName((preValue) => {
+            if (name === 'fName') {
+                return {
+                    fName: value,
+                    lName: preValue.lName,
+                    email: preValue.email
+                };
+            } else if (name === 'lName') {
+                return {
+                    fName: preValue.fName,
+                    lName: value,
+                    email: preValue.email
+                };
+            } else if (name === 'eMail') {
+                return {
+                    fName: preValue.fName,
+                    lName: preValue.lName,
+                    email: value
+                };
+            }
+        });
+
     }
     const onFormSubmit = (event) => {
         event.preventDefault();
-        setFullName(`${name} ${lname}`);
     }
 
     return (
         <>
             <div className='formDiv'>
                 <form onSubmit={onFormSubmit}>
-                    <h1 className='formHeading'>Hello {fullName}</h1>
-                    <input className='formInput' type='text' placeholder='Enter Your First Name' onChange={inputFunc} value={name} /><br /><br />
-                    <input className='formInput' type='text' placeholder='Enter Your Last Name' onChange={inputFuncSec} value={lname} /><br /><br />
+                    <h1 className='formHeading'>Hello {formData.fName} {formData.lName}</h1>
+                    <h2 className='formHeading'>{formData.email}</h2>
+                    <input className='formInput' type='text' name='fName' placeholder='Enter Your First Name' onChange={inputFunc} value={formData.fName} /><br /><br />
+                    <input className='formInput' type='text' name='lName' placeholder='Enter Your Last Name' onChange={inputFunc} value={formData.lName} /><br /><br />
+                    <input className='formInput' type='text' name='eMail' placeholder='Enter Your Email' onChange={inputFunc} value={formData.email} /><br /><br />
                     <button className='formBtn' type='submit'>Submit</button>
                 </form>
             </div>
