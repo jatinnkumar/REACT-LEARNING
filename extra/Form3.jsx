@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 
-const App = () => {
+const Form3 = () => {
     const [formData, setFullName] = useState({
         fName: '',
         lName: '',
         email: ''
     });
     const inputFunc = (data) => {
-        const { name, value } = data.target;
+        let name = data.target.name;
+        let value = data.target.value;
         setFullName((preValue) => {
-            return {
-                ...preValue,
-                [name]: value
+            if (name === 'fName') {
+                return {
+                    fName: value,
+                    lName: preValue.lName,
+                    email: preValue.email
+                };
+            } else if (name === 'lName') {
+                return {
+                    fName: preValue.fName,
+                    lName: value,
+                    email: preValue.email
+                };
+            } else if (name === 'eMail') {
+                return {
+                    fName: preValue.fName,
+                    lName: preValue.lName,
+                    email: value
+                };
             }
         });
 
@@ -28,7 +44,7 @@ const App = () => {
                     <h2 className='formHeading'>{formData.email}</h2>
                     <input className='formInput' type='text' name='fName' placeholder='Enter Your First Name' onChange={inputFunc} value={formData.fName} /><br /><br />
                     <input className='formInput' type='text' name='lName' placeholder='Enter Your Last Name' onChange={inputFunc} value={formData.lName} /><br /><br />
-                    <input className='formInput' type='text' name='email' placeholder='Enter Your Email' onChange={inputFunc} value={formData.email} /><br /><br />
+                    <input className='formInput' type='text' name='eMail' placeholder='Enter Your Email' onChange={inputFunc} value={formData.email} /><br /><br />
                     <button className='formBtn' type='submit'>Submit</button>
                 </form>
             </div>
@@ -36,4 +52,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default Form3;
