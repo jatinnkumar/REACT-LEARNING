@@ -7,10 +7,8 @@ const App = () => {
         email: ''
     });
     const inputFunc = (data) => {
-        console.log(data.target);
         const { name, value } = data.target;
         setFullName((preValue) => {
-            console.log(preValue)
             return {
                 ...preValue,
                 [name]: value
