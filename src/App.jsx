@@ -1,36 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const App = () => {
-    const [formData, setFullName] = useState({
-        firstName: '',
-        lastName: '',
-        email: ''
-    });
-    const inputFunc = (data) => {
-        const { name, value } = data.target;
-        setFullName((preValue) => {
-            return {
-                ...preValue,
-                [name]: value
-            }
-        });
-
-    }
-    const onFormSubmit = (event) => {
-        event.preventDefault();
-    }
-
     return (
         <>
-            <div className='formDiv'>
-                <form onSubmit={onFormSubmit}>
-                    <h1 className='formHeading'>Hello {formData.firstName} {formData.lastName}</h1>
-                    <h2 className='formHeading'>{formData.email}</h2>
-                    <input className='formInput' type='text' name='firstName' placeholder='Enter Your First Name' onChange={inputFunc} value={formData.firstName} /><br /><br />
-                    <input className='formInput' type='text' name='lastName' placeholder='Enter Your Last Name' onChange={inputFunc} value={formData.lastName} /><br /><br />
-                    <input className='formInput' type='text' name='email' placeholder='Enter Your Email' onChange={inputFunc} value={formData.email} /><br /><br />
-                    <button className='formBtn' type='submit'>Submit</button>
-                </form>
+            <div className='toDoList-Content'>
+                <div className='toDoList-Heading'>
+                    <h1>To Do List</h1>
+                </div>
+                <input className='toDoList-input' type='text' placeholder='Add Items' />
+                <button className='toDoList-Button'>+</button>
+
+                <ol className='toDoList-List'>
+                    <li><button className='toDoList-ButtonSecond'>X</button>Mango</li>
+                </ol>
             </div>
         </>
     );
