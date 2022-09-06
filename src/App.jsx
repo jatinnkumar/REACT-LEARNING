@@ -1,46 +1,35 @@
-import React, { useState } from 'react';
-import ArrayItems from './ArrayItems';
+import React, { useState } from "react";
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+
 
 const App = () => {
-
-    const [item, setItem] = useState();
-    const [arrayItems, setArrayItems] = useState([]);
-
-    const getItemName = (data) => {
-        setItem(data.target.value);
+    const [number, setNumber] = useState(0);
+    const decreaseNumber = () => {
+        if (number > 0) {
+            setNumber(number - 1);
+        } else {
+            setNumber(0);
+        }
     }
 
-    const addItem = () => {
-        setArrayItems((previousItems) => {
-            return [...previousItems, item];
-        });
-        setItem('');
+    const increaseNumber = () => {
+        setNumber(number + 1);
     }
-
-    const removeItem = (id) => {
-        setArrayItems((previousItems) => {
-            return previousItems.filter((arrayElements, index) => {
-                return index !== id;
-            })
-        })
-    }
-
     return (
         <>
             <div className='toDoList-Content'>
-                <div className='toDoList-Heading'>
-                    <h1>To Do List</h1>
+                <h1 className="headingNumber">{number}</h1>
+                <div class="buttonContainer">
+                    <Tooltip title="Decrease">
+                        <Button className="decreaseButton" onClick={decreaseNumber}><RemoveIcon /></Button>
+                    </Tooltip>
+                    <Tooltip title="Increase">
+                        <Button className="increaseButton" onClick={increaseNumber}><AddIcon /></Button>
+                    </Tooltip>
                 </div>
-                <input className='toDoList-input' type='text' placeholder='Add Items' value={item} onChange={getItemName} />
-                <button className='toDoList-Button' onClick={addItem}>+</button>
-
-                <ol className='toDoList-List'>
-                    {arrayItems.map((itemValue, index) => {
-                        return (
-                            <ArrayItems key={index} id={index} arrayItem={itemValue} onSelect={removeItem} />
-                        );
-                    })}
-                </ol>
             </div>
         </>
     );
