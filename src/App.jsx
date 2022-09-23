@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import CompA from './CompA';
+import CompB from './CompB';
 
 
 const FirstName = createContext();
@@ -7,9 +7,9 @@ const LastName = createContext();
 const App = () => {
     return (
         <>
-            <FirstName.Provider value={"Karan"}>
-                <LastName.Provider value={"Pal"}>
-                    <CompA />
+            <FirstName.Provider value={"Jatin"}>
+                <LastName.Provider value={"Kumar"}>
+                    <CompB />
                 </LastName.Provider>
             </FirstName.Provider>
         </>
