@@ -1,19 +1,28 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Navbar from './Navbar';
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
+import React, { useReducer } from 'react';
+
+
+const initialState = 0;
+const reducer = (state, action) => {
+    if (action.type === "Increment") {
+        return state + 1;
+    }
+    if (action.type === "Decrement") {
+        if (state == 0) {
+            return 0;
+        } else {
+            return state - 1;
+        }
+    }
+    return state;
+}
 
 const App = () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     return (
         <>
-            <Navbar />
-            <Routes>
-                <Route path="/home" element={<Home />} />
-                <Route path="/about/:firstName/:lastName" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <h1>{state}</h1>
+            <button onClick={() => { dispatch({ type: "Increment" }) }}>+</button>
+            <button onClick={() => { dispatch({ type: "Decrement" }) }}>-</button>
         </>
     );
 }
