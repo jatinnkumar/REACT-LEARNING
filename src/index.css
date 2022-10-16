@@ -217,3 +217,10 @@ div#root {
   color: green;
   text-decoration: underline;
 }
+
+button {
+  height: 35px;
+  width: 75px;
+  font-size: 25px;
+  margin-right: 10px;
+}
