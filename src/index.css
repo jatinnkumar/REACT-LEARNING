@@ -224,3 +224,12 @@ button {
   font-size: 25px;
   margin-right: 10px;
 }
+
+input#refInput {
+  height: 40px;
+  margin-top: 24px;
+}
+
+label {
+  font-size: 20px;
+}

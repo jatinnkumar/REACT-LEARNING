@@ -1,16 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { incNumber, decNumber } from './actions';
+import React, { useRef, useEffect } from 'react';
 
 const App = () => {
-    const myState = useSelector((state) => { return state.number });
-    const dispatch = useDispatch();
+    const elem = useRef();
+    useEffect(() => {
+        elem.current.focus();
+    })
     return (
         <>
-            <h1>{myState}</h1>
-            <button onClick={() => { dispatch(decNumber(1)) }}>-</button>
-            <button onClick={() => { dispatch(incNumber(1)) }}>+</button>
+            <label for="refInput">Enter Your Name:</label><br />
+            <input ref={elem} id="refInput" type="text" />
         </>
     );
 }
